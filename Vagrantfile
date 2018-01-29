@@ -28,9 +28,12 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", inline: <<-SHELL
       yum install mc -y
       yum install git -y
+      git clone https://github.com/BogdanovichVitali/Task-for-Module-2.git
+      git checkout task2
+      cat something.txt
+      ping -с 5 server1
     SHELL
-  end
- 
+ end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
