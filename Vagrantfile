@@ -14,22 +14,22 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "bertvv/centos72" 
   config.vm.provider "virtualbox" do |vb|
-		vb.gui = true
-	end
- # Server 1.
- config.vm.define "server1" do |server1|
-   server1.vm.hostname = "server1.dev"
-   server1.vm.network :private_network, ip: "192.168.0.10"
- end
+    vb.gui = true
+  end
+  # Server 1.
+  config.vm.define "server1" do |server1|
+    server1.vm.hostname = "server1.dev"
+    server1.vm.network :private_network, ip: "192.168.0.10"
+  end
   # Server 2.
- config.vm.define "server2" do |server2|
-   server2.vm.hostname = "server2.dev"
-   server2.vm.network :private_network, ip: "192.168.0.11"
-   config.vm.provision "shell", inline: <<-SHELL
-   yum install mc -y
-   yum install git -y
+  config.vm.define "server2" do |server2|
+    server2.vm.hostname = "server2.dev"
+    server2.vm.network :private_network, ip: "192.168.0.11"
+    config.vm.provision "shell", inline: <<-SHELL
+      yum install mc -y
+      yum install git -y
     SHELL
- end
+  end
  
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -84,4 +84,4 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
-end
+  end
