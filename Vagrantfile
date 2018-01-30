@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
       yum install git -y
       git clone https://github.com/BogdanovichVitali/Task-for-Module-2.git
       cd Task-for-Module-2
-	  git checkout task2
+      git checkout task2
       cat something.txt
       ping -c 5 server1
     SHELL
