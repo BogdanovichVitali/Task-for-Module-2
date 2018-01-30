@@ -32,7 +32,10 @@ Vagrant.configure("2") do |config|
       git checkout task2
       cat something.txt
       ping -с 5 server1
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7582bea079576e0af2ee98f673a30905ac03716a
     SHELL
  end
   # Disable automatic box update checking. If you disable this, then
