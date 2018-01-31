@@ -19,17 +19,18 @@ Vagrant.configure("2") do |config|
   # Server 1.
   config.vm.define "server1" do |server1|
     server1.vm.hostname = "server1.dev"
-    server1.vm.network :private_network, ip: "192.168.0.10"
+    server1.vm.network :private_network, ip: "192.168.1.10"
   end
   # Server 2.
   config.vm.define "server2" do |server2|
     server2.vm.hostname = "server2.dev"
-    server2.vm.network :private_network, ip: "192.168.0.11"
+    server2.vm.network :private_network, ip: "192.168.1.11"
     config.vm.provision "shell", inline: <<-SHELL
       yum install mc -y
       yum install git -y
       git clone https://github.com/BogdanovichVitali/Task-for-Module-2.git
-      git checkout task2
+      cd Task-for-Module-2
+	  git checkout task2
       cat something.txt
       ping -с 5 server1
     SHELL
