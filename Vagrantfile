@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
       cd Task-for-Module-2
 	  git checkout task2
       cat something.txt
-      ping -с 5 server1
+      ping -c 5 server1
     SHELL
  end
   # Disable automatic box update checking. If you disable this, then
