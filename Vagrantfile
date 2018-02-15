@@ -1,11 +1,11 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "bertvv/centos72" 
-	# Apache
+  # Apache
   config.vm.define "apache" do |apache|
     apache.vm.hostname = "apache"
     apache.vm.network "forwarded_port", guest: 80, host: 18080
     apache.vm.network "private_network", ip: "192.168.1.10"
-	  apache.vm.provider :virtualbox do |vb| 
+       apache.vm.provider :virtualbox do |vb| 
        vb.memory = 2048 
        vb.cpus = 2 
       end
@@ -13,15 +13,15 @@ Vagrant.configure("2") do |config|
       systemctl stop firewalld
       systemctl disable firewalld
       sudo yum install deltarpm -y
-	  sudo yum inatall mc -y
+      sudo yum inatall mc -y
       sudo yum install java-1.8.0-openjdk-devel -y
-	  sudo yum install wget -y
+      sudo yum install wget -y
       sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
       sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
       sudo yum install jenkins -y
-	  systemctl enable jenkins
+      systemctl enable jenkins
       sudo service jenkins start
-	  sudo yum install httpd mod_ssl -y
+      sudo yum install httpd mod_ssl -y
       systemctl enable httpd
       systemctl start httpd
       cp /vagrant/mod_jk.so /etc/httpd/modules
@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
     SHELL
   end
 
-	# Tomcat1.
+  # Tomcat1.
   config.vm.define "tomcat1" do |tomcat1|
     tomcat1.vm.hostname = "tomcat1"
     tomcat1.vm.network "forwarded_port", guest: 8080, host: 18081
